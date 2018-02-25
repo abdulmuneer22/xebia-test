@@ -8,7 +8,7 @@ export default function configureStore() {
     reducer,
     applyMiddleware(
       thunk,
-      logger
+      // logger
     )
   );
 
