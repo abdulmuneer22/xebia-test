@@ -1,7 +1,7 @@
 import api from "../../api";
 import _ from "lodash";
 import { Alert } from "react-native";
-import {Actions} from 'react-native-router-flux'
+import { Actions } from "react-native-router-flux";
 
 const sayAlert = title => {
   Alert.alert(
@@ -35,9 +35,9 @@ export const Search = (username, password) => {
           if (uI >= 0 && password === response.data.results[uI].birth_year) {
             dispatch({
               type: "LOGIN_SUCCESS",
-              payload: response.data
+              payload: response.data.results[uI]
             });
-            Actions.home()
+            Actions.home();
           } else {
             alert("Invalid user name or password");
             dispatch({
@@ -55,6 +55,25 @@ export const Search = (username, password) => {
           payload: error
         });
         // sayAlert("Something went wrong");
+      });
+  };
+};
+
+export const SearchPlanets = kw => {
+  return dispatch => {
+    api
+      .searchPlanets(kw)
+      .then(response => {
+        dispatch({
+          type: "RECEIVED_PLANET_SEARCH_RESULTS",
+          payload: response.data.results
+        });
+      })
+      .catch(e => {
+        dispatch({
+          type: "FAILED_TO_RECEIVE_PLANET_SEARCH_RESULTS",
+          payload: e
+        });
       });
   };
 };

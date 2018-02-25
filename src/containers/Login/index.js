@@ -52,7 +52,6 @@ class Login extends Component {
 
   render() {
     const { fontLoaded } = this.state;
-    console.log(this.state);
     return (
       <View
         style={{

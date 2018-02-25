@@ -8,5 +8,8 @@ var api = axios.create({
 module.exports = {
   search: function(kw) {
     return api.get(`people/?search=${kw}`).then(response => response);
+  },
+  searchPlanets : function (kw) {
+    return api.get(`planets/?search=${kw}`)
   }
 };

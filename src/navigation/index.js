@@ -11,6 +11,7 @@ class Navigation extends Component {
         <Scene key="root">
           <Scene
             key="splashscreen"
+            initial={true}
             component={SplashScreen}
             hideNavBar={true}
             direction="fade"
@@ -24,7 +25,6 @@ class Navigation extends Component {
           />
 
           <Scene
-            initial={true}
             key="home"
             component={Home}
             hideNavBar={true}
