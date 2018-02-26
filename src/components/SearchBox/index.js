@@ -59,7 +59,7 @@ export class SearchBox extends Component {
     });
 
     if (k) {
-      if (SearchCount < 5 || user.name === "Luke Skywalker") {
+      if (SearchCount < 15 || user.name === "Luke Skywalker") {
         this.props.searchPlanets(k);
         this.props.onSearchStart();
       }else{
